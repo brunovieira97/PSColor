@@ -40,7 +40,7 @@ if ($GenerateZip) {
 	# Requires .NET 4.5
 	[Reflection.Assembly]::LoadWithPartialName('System.IO.Compression.FileSystem') | Out-Null;
 
-	$zipFileName = Join-Path -Path ([System.IO.Path]::GetDirectoryName($releasePath)) -ChildPath 'PSColor.zip';
+	$zipFileName = Join-Path -Path ([System.IO.Path]::GetDirectoryName($releasePath)) -ChildPath 'Color.zip';
 
 	# Overwrite the ZIP if it already already exists.
 	if (Test-Path -Path $zipFileName) {
