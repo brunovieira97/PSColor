@@ -21,39 +21,39 @@ You can configure PSColor by overriding the values of colors, patterns etc. Conf
 $global:PSColor = @{
     File = @{
         Default = @{
-			Color = 'White'
-		}
-        Code 	= @{
-			Color = 'Magenta';
-			Pattern = '\.(java|c|cpp|cs|js|css|html)$'
-		}
+            Color = 'White'
+        }
+        Code    = @{
+            Color = 'Magenta';
+            Pattern = '\.(java|c|cpp|cs|js|css|html)$'
+        }
     }
     Service = @{
         Default = @{
-			Color = 'White'
-		}
+            Color = 'White'
+        }
         Running = @{
-			Color = 'DarkGreen'
-		}
+            Color = 'DarkGreen'
+        }
         Stopped = @{
-			Color = 'DarkRed'
-		}     
+            Color = 'DarkRed'
+        }     
     }
     Match = @{
         Default = @{
-			Color = 'White'
-		}
-        Path 	= @{
-			Color = 'Cyan'
-		}
+            Color = 'White'
+        }
+        Path    = @{
+            Color = 'Cyan'
+        }
     }
-	NoMatch = @{
+    NoMatch = @{
         Default	= @{
-			Color = 'White'
-		}
-        Path 	= @{
-			Color = 'Cyan'
-		}
+            Color = 'White'
+        }
+        Path    = @{
+            Color = 'Cyan'
+        }
     }
 }
 ```
