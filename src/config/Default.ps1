@@ -1,13 +1,40 @@
 # Default configuration
 
-$Global:PoshColorizerConfig = @{
+$Global:ColorSettings = @{
+	General = @{
+		Path = @{
+			ShortenUserFolder = $true;
+		}
+	}
 	File = @{
 		Default = @{
 			Color = "White";
 		}
+		Header = @{
+			Hidden = $true;
+			Text = @{
+				Color = "White";
+			}
+			Separators = @{
+				Color = "White";
+			}
+		}
+		Path = @{
+			Hidden = $true;
+			Title = @{
+				Color = "White";
+			}
+			Text = @{
+				Color = "White";
+			}
+		}
 		Type = @{
 			Directory = @{
 				Color = "Yellow";
+			}
+			SymbolicLink = @{
+				Color = "Blue";
+				ShowTarget = $true;
 			}
 			Hidden = @{
 				Color = "DarkGray";
@@ -34,6 +61,15 @@ $Global:PoshColorizerConfig = @{
 	Service = @{
 		Default = @{
 			Color = "White";
+		}
+		Header = @{
+			Hidden = $false;
+			Text = @{
+				Color = "White";
+			}
+			Separators = @{
+				Color = "White";
+			}
 		}
 		Status = @{
 			Running = @{
