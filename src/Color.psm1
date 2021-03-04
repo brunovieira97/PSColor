@@ -1,6 +1,10 @@
 . "$PSScriptRoot\config\Default.ps1"
+
+. "$PSScriptRoot\util\Path.ps1"
 . "$PSScriptRoot\util\String.ps1"
+
 . "$PSScriptRoot\helpers\File.ps1"
+. "$PSScriptRoot\helpers\MatchInfo.ps1"
 . "$PSScriptRoot\helpers\Service.ps1"
 
 $Script:showHeader = $true;
