@@ -11,7 +11,7 @@ param (
 
 $ErrorActionPreference = 'Stop';
 
-$releaseFolderName = 'release\PSColor';
+$releaseFolderName = 'release\Color';
 $sourceFolderName = 'src';
 
 $scriptPath = Split-Path -LiteralPath $(
