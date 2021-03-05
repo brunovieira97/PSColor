@@ -81,16 +81,15 @@ function Write-FileHeader {
 		$pathTitleColor = $Global:ColorSettings.File.Path.Title.Color;
 		$pathTextColor = $Global:ColorSettings.File.Path.Text.Color;
 
-		Write-Host;
 		Write-Host "    Directory: " -ForegroundColor $pathTitleColor -NoNewline;
 		Write-Host "$currentDirectory" -ForegroundColor $pathTextColor;
+		Write-Host;
 	}
 
 	if ($Global:ColorSettings.File.Header.Hidden -eq $false) {
 		$headerTextColor = $Global:ColorSettings.File.Header.Text.Color;
 		$headerSeparatorsColor = $Global:ColorSettings.File.Header.Separators.Color;
 
-		Write-Host;
 		Write-Host "Mode                LastWriteTime     Length Name" -ForegroundColor $headerTextColor;
 		Write-Host "----                -------------     ------ ----" -ForegroundColor $headerSeparatorsColor;
 	}	
