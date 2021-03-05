@@ -25,8 +25,8 @@ function Write-ServiceHeader {
 	$textColor = $Global:ColorSettings.Service.Header.Text.Color;
 	$separatorsColor = $Global:ColorSettings.Service.Header.Separators.Color;
 
-	Write-Host "Status   Name               DisplayName" -ForegroundColor $textColor;
-	Write-Host "------   ----               -----------" -ForegroundColor $separatorsColor;
+	Write-Host "Status   Name                         DisplayName" -ForegroundColor $textColor;
+	Write-Host "------   ----                         -----------" -ForegroundColor $separatorsColor;
 
 	$Script:showHeader = $false;
 }
@@ -35,6 +35,8 @@ function Write-Service {
 	param (
 		[Parameter(Mandatory = $true, Position = 1)] $service
 	)
+
+	Write-ServiceHeader;
 
 	if ($service.Status -eq 'Stopped') {
 		Write-ColorizedServiceLine $Global:ColorSettings.Service.Status.Stopped.Color $service;
