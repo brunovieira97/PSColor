@@ -8,24 +8,24 @@ $Global:ColorSettings = @{
 	}
 	File = @{
 		Default = @{
-			Color = "White";
+			Color = "Gray";
 		}
 		Header = @{
-			Hidden = $true;
+			Hidden = $false;
 			Text = @{
-				Color = "White";
+				Color = "DarkGray";
 			}
 			Separators = @{
-				Color = "White";
+				Color = "DarkGray";
 			}
 		}
 		Path = @{
 			Hidden = $true;
 			Title = @{
-				Color = "White";
+				Color = "DarkGray";
 			}
 			Text = @{
-				Color = "White";
+				Color = "Gray";
 			}
 		}
 		Type = @{
@@ -60,15 +60,15 @@ $Global:ColorSettings = @{
 	}
 	Service = @{
 		Default = @{
-			Color = "White";
+			Color = "Gray";
 		}
 		Header = @{
 			Hidden = $false;
 			Text = @{
-				Color = "White";
+				Color = "DarkGray";
 			}
 			Separators = @{
-				Color = "White";
+				Color = "DarkGray";
 			}
 		}
 		Status = @{
@@ -83,7 +83,7 @@ $Global:ColorSettings = @{
 	MatchInfo = @{
 		Match = @{
 			Default = @{
-				Color = "White";
+				Color = "Gray";
 			}
 			Path = @{
 				Color = "Cyan";
@@ -92,12 +92,12 @@ $Global:ColorSettings = @{
 				Color = "Yellow";
 			}
 			Line = @{
-				Color = "White";
+				Color = "Gray";
 			}
 		}
 		NoMatch = @{
 			Default = @{
-				Color = "White";
+				Color = "Gray";
 			}
 			Path = @{
 				Color = "Cyan";
@@ -106,7 +106,7 @@ $Global:ColorSettings = @{
 				Color = "Yellow";
 			}
 			Line = @{
-				Color = "White";
+				Color = "Gray";
 			}
 		}
 	}
