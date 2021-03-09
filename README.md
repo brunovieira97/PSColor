@@ -5,21 +5,39 @@ A fork of Davlind's PSColor Module, providing color highlighting for PowerShell 
 
 Color highlighting is achieved by overriding Out-Default, and intercepting specific output types. Currently supported outputs:
 
-* FileInfo & DirectoryInfo objects (Get-ChildItem, dir, ls etc.)
+* FileInfo & DirectoryInfo objects (Get-ChildItem and its aliases)
 * ServiceController objects (Get-Service)
-* MatchInfo objects (Select-String etc.)
+* MatchInfo objects (Select-String)
+
+If you'd like a new type of data supported, please feel free to create an Issue or contribute with a PR!
 
 ## Disclaimer
 
-Even though this is a fork, publishing to PowerShell Gallery requires a new, unique name for this module. Based on this, I renamed the module to "Color".
+While this is a fork, publishing to PowerShell Gallery requires a new, unique name for this module. Based on this, I renamed it to "Color".
 
-This work is still heavily based on Davlind's original PSColor, and the LICENSE still contains his name explicitly as this is still a fork, technically.
+This work is still heavily based on Davlind's original PSColor, and the LICENSE contains his name explicitly.
+
+## Why fork PSColor?
+
+I've been using PSColor for a long time now, and with that, feature requests arrive, as well as need for customizability.
+
+After taking a look at the original project's issues, it looks abandoned, having no modifications for years now. What better way for having my own requests implemented (and why not other users' as well?)? A fork it is, then!
 
 ## Installation
 
-Install by downloading Color.zip from the [Releases](github.com/brunovieira97/PSColor/releases) page and extracting it to a folder named `Color` in any of your PowerShell module paths. (Run `$env:PSModulePath` to see your paths.)
+Color is available on [PowerShell Gallery](https://www.powershellgallery.com/packages/Color) and can be installed through PowerShellGet. To do so, run the following Cmdlet on PowerShell:
 
-If you want Color to be ran automatically you can add `Import-Module Color` to your PowerShell Profile. To locate your profile, run `$profile`
+```powershell
+Install-Module -Name Color -AllowClobber
+```
+
+If you want Color to be ran automatically, add it to your PowerShell Profile:
+
+```powershell
+Import-Module <path to local git repo>/Color/Color.psm1
+```
+
+I'm not dealing with GitHub releases yet, but that's planned for the future. In the meantime, if you wish to do a manual install and avoid usage of PS Gallery and PSGet, just clone the repo and run the [build script](tools/build.ps1) and import the module on your Profile. Also, you can place it in one of your Module Paths (`$env:PSModulePath` has the directory list).
 
 ## Configuration
 
@@ -28,46 +46,47 @@ You can configure Color by overriding the values of colors, patterns etc. Config
 ```powershell
 $global:ColorSettings = @{
     File = @{
-        Default = @{
-            Color = 'White'
-        }
-        Code    = @{
-            Color = 'Magenta';
-            Pattern = '\.(java|c|cpp|cs|js|css|html)$'
-        }
+        DefaultColor = "Gray";
+		Types 		 = @{
+			Code = @{
+				Color 	= "Magenta";
+				Pattern = "\.(java|c|cpp|cs|js|css|html)$";
+        	}
+		}
+        
     }
     Service = @{
-        Default = @{
-            Color = 'White'
-        }
-        Running = @{
-            Color = 'DarkGreen'
-        }
-        Stopped = @{
-            Color = 'DarkRed'
-        }     
+        DefaultColor = "White";
+		Status = @{
+			Running	= @{
+				Color = "DarkGreen";
+			}
+			Stopped	= @{
+				Color = "DarkRed";
+			}
+		}
     }
     Match = @{
-        Default = @{
-            Color = 'White'
-        }
-        Path    = @{
-            Color = 'Cyan'
+        DefaultColor = "Gray";
+        Path         = @{
+            Color = "Cyan";
         }
     }
     NoMatch = @{
-        Default	= @{
-            Color = 'White'
-        }
-        Path    = @{
-            Color = 'Cyan'
+        DefaultColor = "Gray";
+        Path         = @{
+            Color = "Cyan";
         }
     }
 }
 ```
 
-E.g. if you would like to override the red color for Executables, in favour of blue; you could add the following to your PowerShell profile:
+### Colors
+
+Support for colors at the moment is based on String-based names for them, being very limited as to how many can actually be used. My intention is to add support for hexadecimal color codes, but that's not in the works yet.
+
+So, let's say you want to use Blue for source code files instead of the default one (Magenta). All you have to do is add this to your PowerShell Profile:
 
 ```powershell
-$Global:ColorSettings.File.Executable.Color = 'Blue'
+$Global:ColorSettings.File.Types.Code.Color = "Blue";
 ```
