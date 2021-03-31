@@ -6,9 +6,16 @@ function Write-Context {
 	)
 
 	$display | ForEach-Object {
-		Write-Host "  ${fileName}" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.Path.Color -NoNewLine;
-        Write-Host ":" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.DefaultColor -NoNewLine;
-        Write-Host "$start" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.LineNumber.Color -NoNewLine;
+		if ($fileName -ne 'InputStream') {
+			Write-Host "${fileName}" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.Path.Color -NoNewLine;
+			Write-Host ":" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.DefaultColor -NoNewLine;
+		}
+
+		Write-Host -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.LineNumber.Color -NoNewline (
+			"{0, 4}" -f
+			$start
+		);
+		
         Write-Host ":" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.DefaultColor -NoNewLine;
         write-host "$_" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.Line.Color;
         
@@ -21,10 +28,16 @@ function Write-Match {
         [Parameter(Mandatory = $True, Position = 1)] $match
     )
 
-	Write-Host '> ' -ForegroundColor $Global:ColorSettings.MatchInfo.Match.DefaultColor -NoNewLine;
-    Write-Host $match.RelativePath($pwd) -ForegroundColor $Global:ColorSettings.MatchInfo.Match.Path.Color -NoNewLine;
-    Write-Host ':' -ForegroundColor $Global:ColorSettings.MatchInfo.Match.DefaultColor -NoNewLine;
-    Write-Host $match.LineNumber -ForegroundColor $Global:ColorSettings.MatchInfo.Match.LineNumber.Color -NoNewLine;
+	if ($match.RelativePath($pwd) -ne 'InputStream') {
+		Write-Host $match.RelativePath($pwd) -ForegroundColor $Global:ColorSettings.MatchInfo.Match.Path.Color -NoNewLine;
+		Write-Host ':' -ForegroundColor $Global:ColorSettings.MatchInfo.Match.DefaultColor -NoNewLine;
+	}
+
+	Write-Host -ForegroundColor $Global:ColorSettings.MatchInfo.Match.LineNumber.Color -NoNewline (
+		"{0, 4}" -f
+		$match.LineNumber
+	);
+
     Write-Host ':' -ForegroundColor $Global:ColorSettings.MatchInfo.Match.DefaultColor -NoNewLine;
     Write-Host $match.Line -ForegroundColor $Global:ColorSettings.MatchInfo.Match.Line.Color;
 }
