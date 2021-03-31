@@ -66,10 +66,10 @@ $Global:ColorSettings = @{
 		Match = @{
 			DefaultColor = "Gray";
 			Path = @{
-				Color = "Cyan";
+				Color = "DarkGreen";
 			}
 			LineNumber = @{
-				Color = "DarkGray";
+				Color = "DarkGreen";
 			}
 			Line = @{
 				Color = "Gray";
