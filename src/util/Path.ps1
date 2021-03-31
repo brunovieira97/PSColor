@@ -6,7 +6,7 @@ function Get-ShortenedPath {
 
 	$result = $path;
 
-	if (($Global:ColorSettings.General.Path.ShortenUserFolder -eq $true) -and ($path.StartsWith($env:USERPROFILE))) {
+	if (($Global:ColorSettings.General.ShortenUserFolder -eq $true) -and ($path.StartsWith($env:USERPROFILE))) {
 		$result = $path.Replace($env:USERPROFILE, "~");
 	}
 

@@ -6,7 +6,7 @@ function Write-ColorizedServiceLine {
 		[Parameter(Mandatory = $true, Position = 2)] $service
 	)
 
-	$defaultColor = $Global:ColorSettings.Service.Default.Color;	
+	$defaultColor = $Global:ColorSettings.Service.DefaultColor;	
 
 	Write-Host ("{0,-8}" -f $_.Status) -ForegroundColor $color -NoNewline;
 	Write-Host (
@@ -18,12 +18,12 @@ function Write-ColorizedServiceLine {
 
 function Write-ServiceHeader {
 
-	if (($Global:ColorSettings.Service.Header.Hidden -eq $true) -or ($Script:showHeader -eq $false)) {
+	if (($Global:ColorSettings.Service.Header.Visible -eq $false) -or ($Script:showHeader -eq $false)) {
 		return;
 	}
 
-	$textColor = $Global:ColorSettings.Service.Header.Text.Color;
-	$separatorsColor = $Global:ColorSettings.Service.Header.Separators.Color;
+	$textColor = $Global:ColorSettings.Service.Header.TextColor;
+	$separatorsColor = $Global:ColorSettings.Service.Header.SeparatorsColor;
 
 	Write-Host "Status   Name                         DisplayName" -ForegroundColor $textColor;
 	Write-Host "------   ----                         -----------" -ForegroundColor $separatorsColor;
@@ -43,6 +43,6 @@ function Write-Service {
 	} elseif ($service.Status -eq 'Running') {
 		Write-ColorizedServiceLine $Global:ColorSettings.Service.Status.Running.Color $service;
 	} else {
-		Write-ColorizedServiceLine $Global:ColorSettings.Service.Default.Color $service;
+		Write-ColorizedServiceLine $Global:ColorSettings.Service.DefaultColor $service;
 	}
 }
