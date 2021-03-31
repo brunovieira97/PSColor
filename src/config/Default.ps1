@@ -2,33 +2,21 @@
 
 $Global:ColorSettings = @{
 	General = @{
-		Path = @{
-			ShortenUserFolder = $true;
-		}
+		ShortenUserFolder = $true;
 	}
 	File = @{
-		Default = @{
-			Color = "Gray";
-		}
+		DefaultColor = "Gray";
 		Header = @{
-			Hidden = $false;
-			Text = @{
-				Color = "DarkGray";
-			}
-			Separators = @{
-				Color = "DarkGray";
-			}
+			Visible = $true;
+			TextColor = "DarkGray";
+			SeparatorsColor = "DarkGray";
 		}
 		Path = @{
-			Hidden = $true;
-			Title = @{
-				Color = "DarkGray";
-			}
-			Text = @{
-				Color = "Gray";
-			}
+			Visible = $false;
+			TitleColor = "DarkGray";
+			TextColor = "Gray";
 		}
-		Type = @{
+		Types = @{
 			Directory = @{
 				Color = "Yellow";
 			}
@@ -59,17 +47,11 @@ $Global:ColorSettings = @{
 		}
 	}
 	Service = @{
-		Default = @{
-			Color = "Gray";
-		}
+		DefaultColor = "Gray";
 		Header = @{
-			Hidden = $false;
-			Text = @{
-				Color = "DarkGray";
-			}
-			Separators = @{
-				Color = "DarkGray";
-			}
+			Visible = $true;
+			TextColor = "DarkGray";
+			SeparatorsColor = "DarkGray";
 		}
 		Status = @{
 			Running = @{
@@ -82,28 +64,24 @@ $Global:ColorSettings = @{
 	}
 	MatchInfo = @{
 		Match = @{
-			Default = @{
-				Color = "Gray";
-			}
+			DefaultColor = "Gray";
 			Path = @{
 				Color = "Cyan";
 			}
 			LineNumber = @{
-				Color = "Yellow";
+				Color = "DarkGray";
 			}
 			Line = @{
 				Color = "Gray";
 			}
 		}
 		NoMatch = @{
-			Default = @{
-				Color = "Gray";
-			}
+			DefaultColor = "Gray";
 			Path = @{
 				Color = "Cyan";
 			}
 			LineNumber = @{
-				Color = "Yellow";
+				Color = "DarkGray";
 			}
 			Line = @{
 				Color = "Gray";
