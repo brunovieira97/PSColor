@@ -22,6 +22,8 @@ function Write-ServiceHeader {
 		return;
 	}
 
+	Write-Host;
+
 	$textColor = $Global:ColorSettings.Service.Header.TextColor;
 	$separatorsColor = $Global:ColorSettings.Service.Header.SeparatorsColor;
 

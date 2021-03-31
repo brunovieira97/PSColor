@@ -75,6 +75,8 @@ function Write-FileHeader {
 		return;
 	}
 
+	Write-Host;
+
 	if ($Global:ColorSettings.File.Path.Visible -eq $true) {
 		$currentDirectory = Get-ShortenedPath $directory;
 
