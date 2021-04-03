@@ -8,8 +8,8 @@ function Write-ColorizedServiceLine {
 
 	$defaultColor = $Global:ColorSettings.Service.DefaultColor;	
 
-	Write-Host ("{0,-8}" -f $_.Status) -ForegroundColor $color -NoNewline;
-	Write-Host (
+	Write-HostColor -Value ("{0,-8}" -f $_.Status) -ForegroundColor $color -NoNewline;
+	Write-HostColor -Value (
 		" {0,-28} {1,-59}" -f
 		(Get-StringCharacters $_.Name 28),
 		(Get-StringCharacters $_.DisplayName 58)
@@ -27,8 +27,8 @@ function Write-ServiceHeader {
 	$textColor = $Global:ColorSettings.Service.Header.TextColor;
 	$separatorsColor = $Global:ColorSettings.Service.Header.SeparatorsColor;
 
-	Write-Host "Status   Name                         DisplayName" -ForegroundColor $textColor;
-	Write-Host "------   ----                         -----------" -ForegroundColor $separatorsColor;
+	Write-HostColor -Value "Status   Name                         DisplayName" -ForegroundColor $textColor;
+	Write-HostColor -Value "------   ----                         -----------" -ForegroundColor $separatorsColor;
 
 	$Script:showHeader = $false;
 }

@@ -57,7 +57,7 @@ function Write-ColorizedFileLine {
 		[Parameter(Mandatory = $true)] $file
 	)
 
-	Write-Host -ForegroundColor $color (
+	Write-HostColor -ForegroundColor $color -Value (
 		"{0,-7} {1,21} {2,10} {3}" -f 
 		$file.Mode,
 		([String]::Format("{0,10} {1,5}", $file.LastWriteTime.ToString("d"), $file.LastWriteTime.ToString("t"))),
@@ -83,8 +83,8 @@ function Write-FileHeader {
 		$pathTitleColor = $Global:ColorSettings.File.Path.TitleColor;
 		$pathTextColor = $Global:ColorSettings.File.Path.TextColor;
 
-		Write-Host "    Directory: " -ForegroundColor $pathTitleColor -NoNewline;
-		Write-Host "$currentDirectory" -ForegroundColor $pathTextColor;
+		Write-HostColor -Value "    Directory: " -ForegroundColor $pathTitleColor -NoNewline;
+		Write-HostColor -Value "$currentDirectory" -ForegroundColor $pathTextColor;
 		Write-Host;
 	}
 
@@ -92,8 +92,8 @@ function Write-FileHeader {
 		$headerTextColor = $Global:ColorSettings.File.Header.TextColor;
 		$headerSeparatorsColor = $Global:ColorSettings.File.Header.SeparatorsColor;
 
-		Write-Host "Mode            LastWriteTime     Length Name" -ForegroundColor $headerTextColor;
-		Write-Host "----            -------------     ------ ----" -ForegroundColor $headerSeparatorsColor;
+		Write-HostColor -Value "Mode            LastWriteTime     Length Name" -ForegroundColor $headerTextColor;
+		Write-HostColor -Value "----            -------------     ------ ----" -ForegroundColor $headerSeparatorsColor;
 	}	
 
 	$Script:showHeader = $false;

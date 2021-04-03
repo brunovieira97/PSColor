@@ -7,17 +7,17 @@ function Write-Context {
 
 	$display | ForEach-Object {
 		if ($fileName -ne 'InputStream') {
-			Write-Host "${fileName}" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.Path.Color -NoNewLine;
-			Write-Host ":" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.DefaultColor -NoNewLine;
+			Write-HostColor -Value "${fileName}" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.Path.Color -NoNewLine;
+			Write-HostColor -Value ":" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.DefaultColor -NoNewLine;
 		}
 
-		Write-Host -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.LineNumber.Color -NoNewline (
+		Write-HostColor -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.LineNumber.Color -NoNewline -Value (
 			"{0, 4}" -f
 			$start
 		);
 		
-        Write-Host ":" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.DefaultColor -NoNewLine;
-        write-host "$_" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.Line.Color;
+        Write-HostColor -Value ":" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.DefaultColor -NoNewLine;
+        write-hostColor -Value "$_" -ForegroundColor $Global:ColorSettings.MatchInfo.NoMatch.Line.Color;
         
 		$start++
 	}
@@ -29,17 +29,17 @@ function Write-Match {
     )
 
 	if ($match.RelativePath($pwd) -ne 'InputStream') {
-		Write-Host $match.RelativePath($pwd) -ForegroundColor $Global:ColorSettings.MatchInfo.Match.Path.Color -NoNewLine;
-		Write-Host ':' -ForegroundColor $Global:ColorSettings.MatchInfo.Match.DefaultColor -NoNewLine;
+		Write-HostColor -Value $match.RelativePath($pwd) -ForegroundColor $Global:ColorSettings.MatchInfo.Match.Path.Color -NoNewLine;
+		Write-HostColor -Value ':' -ForegroundColor $Global:ColorSettings.MatchInfo.Match.DefaultColor -NoNewLine;
 	}
 
-	Write-Host -ForegroundColor $Global:ColorSettings.MatchInfo.Match.LineNumber.Color -NoNewline (
+	Write-HostColor -ForegroundColor $Global:ColorSettings.MatchInfo.Match.LineNumber.Color -NoNewline -Value (
 		"{0, 4}" -f
 		$match.LineNumber
 	);
 
-    Write-Host ':' -ForegroundColor $Global:ColorSettings.MatchInfo.Match.DefaultColor -NoNewLine;
-    Write-Host $match.Line -ForegroundColor $Global:ColorSettings.MatchInfo.Match.Line.Color;
+    Write-HostColor -Value ':' -ForegroundColor $Global:ColorSettings.MatchInfo.Match.DefaultColor -NoNewLine;
+    Write-HostColor -Value $match.Line -ForegroundColor $Global:ColorSettings.MatchInfo.Match.Line.Color;
 }
 
 function Write-MatchInfo {
