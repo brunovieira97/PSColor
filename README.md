@@ -82,10 +82,14 @@ $global:ColorSettings = @{
 
 ### Colors
 
-Support for colors at the moment is based on String-based names for them, being very limited as to how many can actually be used. My intention is to add support for hexadecimal color codes, but that's not in the works yet.
+Colors can be set based on their names as well as their hexadecimal codes. When using names, you're limited to the standard 16 colors as observed on Conhost Properties window. When setting the hexadecimal code, use a string and don't forget the `#`!
 
 So, let's say you want to use Blue for source code files instead of the default one (Magenta). All you have to do is add this to your PowerShell Profile:
 
 ```powershell
+# Using the color name
 $Global:ColorSettings.File.Types.Code.Color = "Blue";
+
+# Using the hexadecimal code
+$Global:ColorSettings.File.Types.Code.Color = "#3b79ff";
 ```
