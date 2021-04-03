@@ -5,86 +5,86 @@ $Global:ColorSettings = @{
 		ShortenUserFolder = $true;
 	}
 	File = @{
-		DefaultColor = "Gray";
+		DefaultColor = "#cccccc";
 		Header = @{
 			Visible = $true;
-			TextColor = "DarkGray";
-			SeparatorsColor = "DarkGray";
+			TextColor = "#767676";
+			SeparatorsColor = "#767676";
 		}
 		Path = @{
 			Visible = $false;
-			TitleColor = "DarkGray";
-			TextColor = "Gray";
+			TitleColor = "#767676";
+			TextColor = "#cccccc";
 		}
 		Types = @{
 			Directory = @{
-				Color = "Yellow";
+				Color = "#f9f1a5";
 			}
 			SymbolicLink = @{
-				Color = "Blue";
+				Color = "#3b79ff";
 				ShowTarget = $true;
 			}
 			Hidden = @{
-				Color = "DarkGray";
+				Color = "#767676";
 				RegEx = "^\.";
 			}
 			Binary = @{
-				Color = "DarkCyan";
+				Color = "#3a96dd";
 				RegEx = "\.(exe|jar|msi|pdf|war)$";
 			}
 			Code = @{
-				Color = "Magenta";
+				Color = "#b4009f";
 				RegEx = "\.(bat|c|cmd|cpp|cs|css|dfm|dpr|h|html|java|js|json|pas|php|pl|ps1|psm1|py|rb|reg|sh|sql|swift|toml|ts|vb|vbs|yaml|yml)$";
 			}
 			Compressed = @{
-				Color = "Cyan";
+				Color = "#61d6d6";
 				RegEx = "\.(7z|gz|rar|tar|zip)$";
 			}
 			Text = @{
-				Color = "Red";
+				Color = "#e74856";
 				RegEx = "\.(cfg|conf|config|csv|ini|log|markdown|md|txt|xml)$";
 			}
 		}
 	}
 	Service = @{
-		DefaultColor = "Gray";
+		DefaultColor = "#cccccc";
 		Header = @{
 			Visible = $true;
-			TextColor = "DarkGray";
-			SeparatorsColor = "DarkGray";
+			TextColor = "#767676";
+			SeparatorsColor = "#767676";
 		}
 		Status = @{
 			Running = @{
-				Color = "DarkGreen";
+				Color = "#13a10e";
 			}
 			Stopped = @{
-				Color = "DarkRed";
+				Color = "#c50f1f";
 			}
 		}
 	}
 	MatchInfo = @{
 		Match = @{
-			DefaultColor = "Gray";
+			DefaultColor = "#cccccc";
 			Path = @{
-				Color = "DarkGreen";
+				Color = "#13a10e";
 			}
 			LineNumber = @{
-				Color = "DarkGreen";
+				Color = "#13a10e";
 			}
 			Line = @{
-				Color = "Gray";
+				Color = "#cccccc";
 			}
 		}
 		NoMatch = @{
-			DefaultColor = "Gray";
+			DefaultColor = "#cccccc";
 			Path = @{
-				Color = "Cyan";
+				Color = "#61d6d6";
 			}
 			LineNumber = @{
-				Color = "DarkGray";
+				Color = "#767676";
 			}
 			Line = @{
-				Color = "Gray";
+				Color = "#cccccc";
 			}
 		}
 	}
